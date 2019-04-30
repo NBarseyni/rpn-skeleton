@@ -45,7 +45,7 @@ public class CLI {
        // regex permettant de de vérifier si un caractère est un chiffre/nombre (négatif ou positif)
        String regexChiffre = "[-0-9]+";
        // regex permettant de vérifier si un caractère est une opération (+ - / *)
-       String regexOp = "[\\+|\\/|\\-|\\*]+";
+       String regexOp = "[+/\-*]+";
        String[] tableauExpression = expression.split(" ");
        ArrayList<String> listExpression = new ArrayList<>(Arrays.asList(tableauExpression));
        if(listExpression.size() == 1)
