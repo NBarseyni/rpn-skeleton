@@ -11,7 +11,13 @@ public class CLI {
         String expression = Stream.of(args).collect(Collectors.joining(" "));
 
         System.out.println("About to evaluate '" + expression + "'");
-        long result = Calculate.evaluate(expression);
-        System.out.println("> " + result);
+        boolean bool=Calculate.checkExpression(expression);
+        if(bool){
+            long result = Calculate.evaluate(expression);
+            System.out.println("\n\n\n\n\n\n > " + result);
+        }
+        else {
+            System.out.println("\n\n\n> Expression incorrecte \n\n\n");
+        }
     }
 }
