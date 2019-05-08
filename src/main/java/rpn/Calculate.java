@@ -7,7 +7,6 @@ public class Calculate {
 
     static long evaluate(String expression) {
 
-        String startAgain;
         long intermediaire=0;
         // regex permettant de de vérifier si un caractère est un chiffre/nombre (négatif ou positif)
         String regexChiffre = "[-0-9]+";
@@ -57,7 +56,6 @@ public class Calculate {
     static boolean checkExpression(String expression) {
 
         boolean bool = true;
-        String startAgain;
         long number=0;
         // regex permettant de de vérifier si un caractère est un chiffre/nombre (négatif ou positif)
         String regexChiffre = "[-0-9]+";
@@ -66,9 +64,7 @@ public class Calculate {
         String[] tableauExpression = expression.split(" ");
         ArrayList<String> listExpression = new ArrayList<>(Arrays.asList(tableauExpression));
 
-      /*  if (listExpression.size() % 2 == 0  ) {
-            bool = false;
-        }*/
+
         ArrayList<String> listCheck = new ArrayList<>();
         while(listExpression.size()!=0 && bool){
 
@@ -91,7 +87,7 @@ public class Calculate {
                             number = number1 + number2;
                             break;
                         case "/":
-                            number = number1 / number2;
+                            number = number2 / number1;
                             break;
                         case "-":
                             number = number1 - number2;
@@ -99,6 +95,7 @@ public class Calculate {
                         case "*":
                             number = number1 * number2;
                             break;
+                            default:System.out.println("opération non reconnue");
                     }
                     listCheck.add(number+"");
                     listExpression.remove(0);
@@ -115,43 +112,3 @@ public class Calculate {
         return bool;
     }
 }
-
-/* long intermediaire = 0;
-        String startAgain;
-        // regex permettant de de vérifier si un caractère est un chiffre/nombre (négatif ou positif)
-        String regexChiffre = "[-0-9]+";
-        // regex permettant de vérifier si un caractère est une opération (+ - / *)
-        String regexOp = "[+/\\-*]+";
-        String[] tableauExpression = expression.split(" ");
-        ArrayList<String> listExpression = new ArrayList<>(Arrays.asList(tableauExpression));
-
-
-
-
-        if (listExpression.size() == 1) {
-            return Long.parseLong(expression);
-        }
-        for (int i = 0; i < listExpression.size() - 1; i++) {
-            if (listExpression.get(i + 1).matches(regexChiffre) && listExpression.get(i + 2).matches(regexOp)) {
-                switch (listExpression.get(i + 2)) {
-                    case "+":
-                        intermediaire = Long.parseLong(listExpression.get(i)) + Long.parseLong(listExpression.get(i + 1));
-                        break;
-                    case "/":
-                        intermediaire = Long.parseLong(listExpression.get(i)) / Long.parseLong(listExpression.get(i + 1));
-                        break;
-                    case "-":
-                        intermediaire = Long.parseLong(listExpression.get(i)) - Long.parseLong(listExpression.get(i + 1));
-                        break;
-                    case "*":
-                        intermediaire = Long.parseLong(listExpression.get(i)) * Long.parseLong(listExpression.get(i + 1));
-                        break;
-                }
-                listExpression.set(i, intermediaire + "");
-                listExpression.remove(i + 1);
-                listExpression.remove(i + 1);
-                startAgain = String.join(" ", listExpression);
-                return evaluate(startAgain);
-            }
-        }*/
-       /// return Long.parseLong(expression);
