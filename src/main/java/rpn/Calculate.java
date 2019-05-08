@@ -9,7 +9,7 @@ public class Calculate {
 
         long intermediaire=0;
         // regex permettant de de vérifier si un caractère est un chiffre/nombre (négatif ou positif)
-        String regexChiffre = "[-0-9]+";
+        String regexChiffre = "-?[1-9]\\d*|0";
         // regex permettant de vérifier si un caractère est une opération (+ - / *)
         String regexOp = "[+/\\-*]+";
         String[] tableauExpression = expression.split(" ");
@@ -36,7 +36,7 @@ public class Calculate {
                             intermediaire = number2 / number1;
                         break;
                     case "-":
-                            intermediaire = number1 - number2;
+                            intermediaire = number2 - number1;
                         break;
                     case "*":
                             intermediaire = number1 * number2;
@@ -58,7 +58,7 @@ public class Calculate {
         boolean bool = true;
         long number=0;
         // regex permettant de de vérifier si un caractère est un chiffre/nombre (négatif ou positif)
-        String regexChiffre = "[-0-9]+";
+        String regexChiffre = "-?[1-9]\\d*|0";
         // regex permettant de vérifier si un caractère est une opération (+ - / *)
         String regexOp = "[+/\\-*]+";
         String[] tableauExpression = expression.split(" ");
@@ -90,7 +90,7 @@ public class Calculate {
                             number = number2 / number1;
                             break;
                         case "-":
-                            number = number1 - number2;
+                            number = number2 - number1;
                             break;
                         case "*":
                             number = number1 * number2;

@@ -49,7 +49,7 @@ public class CLITest {
 
     @Test
     public void should_evaluate_more_complex_negative() {
-        assertThat(evaluate("3 5 - 8 * 7 + *")).isEqualTo(-99);
+        assertThat(evaluate("3 5 -8 * 7 + *")).isEqualTo(-99);
     }
 
 }
